@@ -1,0 +1,89 @@
+{
+  "falacias": [
+    {
+      "nome": "Apelo à autoridade (Ad Verecundiam)",
+      "descricao": "Usa uma autoridade como prova definitiva, especialmente fora de sua área de expertise — catalogada por Copi em Introdução à Lógica",
+      "padroes": ["especialistas dizem", "estudos provam", "cientistas afirmam", "todo mundo sabe", "a ciência diz", "pesquisas mostram"]
+    },
+    {
+      "nome": "Apelo à tradição",
+      "descricao": "Defende algo apenas porque sempre foi assim, ignorando evidências em contrário",
+      "padroes": ["sempre foi assim", "é tradição", "antigamente era melhor", "nunca mudamos", "nossos antepassados", "desde sempre"]
+    },
+    {
+      "nome": "Ad hominem",
+      "descricao": "Ataca a pessoa em vez do argumento — uma das falácias originais de Aristóteles nas Refutações Sofísticas",
+      "padroes": ["quem é você pra", "você não entende nada", "ele é burro", "ela não sabe", "sua opinião não vale", "você é ignorante"]
+    },
+    {
+      "nome": "Falsa dicotomia",
+      "descricao": "Apresenta apenas duas opções quando existem mais — falácia de presunção imprópria segundo Toulmin",
+      "padroes": ["ou você apoia", "ou está comigo ou", "só tem duas opções", "é isso ou aquilo", "quem não é a favor é contra", "sem meio termo"]
+    },
+    {
+      "nome": "Apelo ao medo",
+      "descricao": "Usa o medo para convencer em vez de argumentos racionais — falácia de relevância na classificação de Copi",
+      "padroes": ["se não fizer", "vai ser tarde demais", "o perigo é", "cuidado com", "você vai se arrepender", "as consequências serão graves"]
+    },
+    {
+      "nome": "Apelo à popularidade (Ad Populum)",
+      "descricao": "Algo é verdade porque muita gente acredita — identificada por Copi como falácia de relevância",
+      "padroes": ["todo mundo faz", "a maioria acredita", "milhões de pessoas", "ninguém questiona", "é consenso geral"]
+    },
+    {
+      "nome": "Homem de palha (Espantalho)",
+      "descricao": "Distorce o argumento do outro para atacar uma versão mais fraca e fácil de refutar",
+      "padroes": ["então você está dizendo que", "isso significa que você quer", "no fundo você acha", "é como se você dissesse", "lá vem você dizendo que"]
+    },
+    {
+      "nome": "Post hoc ergo propter hoc",
+      "descricao": "Conclui que A causou B apenas porque A ocorreu antes de B — falácia clássica de causalidade falsa",
+      "padroes": ["depois que", "desde que começou", "foi a partir daí que", "logo após", "a partir do momento que"]
+    },
+    {
+      "nome": "Ladeira escorregadia (Bola de neve)",
+      "descricao": "Afirma que um evento levará inevitavelmente a uma cadeia de consequências graves, sem justificar os passos — identificada no Guia das Falácias baseado em Copi",
+      "padroes": ["se deixar", "vai acabar em", "o próximo passo será", "não vai demorar até", "logo vão querer"]
+    },
+    {
+      "nome": "Tu quoque (Whataboutism)",
+      "descricao": "Responde a uma crítica apontando falha no acusador, evitando responder ao argumento — muito usada em debates políticos",
+      "padroes": ["e você também", "e você fez o mesmo", "mas e quando você", "olha quem fala", "você não é melhor"]
+    },
+    {
+      "nome": "Apelo à ignorância (Ad Ignorantiam)",
+      "descricao": "Afirma que algo é verdade porque não foi provado falso, ou vice-versa — catalogada por Copi",
+      "padroes": ["ninguém provou que não", "se fosse mentira já teriam provado", "não existe prova contra", "até que se prove o contrário"]
+    },
+    {
+      "nome": "Negação do antecedente",
+      "descricao": "Erro formal: conclui que se A não ocorre, B também não ocorre — falácia formal aristotélica",
+      "padroes": ["se não há", "sem isso não há", "logo sem", "na ausência de"]
+    },
+    {
+      "nome": "Falácia do escocês verdadeiro",
+      "descricao": "Redefine arbitrariamente um grupo para excluir contraexemplos inconvenientes",
+      "padroes": ["nenhum verdadeiro", "um verdadeiro nunca", "quem realmente é", "de verdade não faria"]
+    },
+    {
+      "nome": "Apelo à natureza",
+      "descricao": "Assume que o que é natural é bom e o que é artificial é ruim, sem justificativa",
+      "padroes": ["é natural", "é artificial", "a natureza sabe", "produtos naturais são", "feito pela natureza"]
+    },
+    {
+      "nome": "Generalização apressada",
+      "descricao": "Tira conclusões amplas a partir de poucos exemplos — falácia indutiva clássica",
+      "padroes": ["todos os", "nenhum", "invariavelmente", "sem exceção", "qualquer um deles"]
+    },
+    {
+      "nome": "Equívoco (Ambiguidade)",
+      "descricao": "Usa a mesma palavra com dois significados diferentes no mesmo argumento — falácia de linguagem de Aristóteles",
+      "padroes": ["no sentido de", "isso é o mesmo que", "o que equivale a"]
+    },
+    {
+      "nome": "Ipse dixit (Asserção nua)",
+      "descricao": "Apresenta uma afirmação como verdadeira sem qualquer suporte ou evidência, baseando-se apenas na autoridade implícita do falante",
+      "padroes": ["eu sei que", "pode confiar", "simplesmente é assim", "acredite em mim", "estou te dizendo"]
+    }
+  ]
+}

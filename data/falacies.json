@@ -1,0 +1,29 @@
+{
+  "falacias": [
+    {
+      "nome": "Apelo à autoridade",
+      "descricao": "Usa uma autoridade como prova definitiva sem evidências",
+      "padroes": ["especialistas dizem", "estudos provam", "cientistas afirmam", "todo mundo sabe"]
+    },
+    {
+      "nome": "Apelo à tradição",
+      "descricao": "Defende algo só porque sempre foi assim",
+      "padroes": ["sempre foi assim", "é tradição", "antigamente era melhor", "nunca mudamos"]
+    },
+    {
+      "nome": "Ad hominem",
+      "descricao": "Ataca a pessoa em vez do argumento",
+      "padroes": ["você é", "ele é burro", "ela não entende nada", "quem é você pra"]
+    },
+    {
+      "nome": "Falsa dicotomia",
+      "descricao": "Apresenta apenas duas opções quando existem mais",
+      "padroes": ["ou você está comigo ou", "só tem duas opções", "é isso ou aquilo", "se não é x então é y"]
+    },
+    {
+      "nome": "Apelo ao medo",
+      "descricao": "Usa o medo para convencer em vez de argumentos",
+      "padroes": ["se não fizer", "vai ser tarde demais", "o perigo é", "cuidado com"]
+    }
+  ]
+}
