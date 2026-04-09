@@ -64,7 +64,7 @@ if analisar:
         with col_b:
             st.markdown("### Contradições")
             if contradicoes:
-                st.markdown(f'<div class="contador">{len(contradicoes)} contradição(ões) encontrada(s)</div>', unsafe_allow_html=True)
+                st.markdown(f'<div class="contador">{len(contradicoes)} par(es) de contradição encontrado(s)</div>', unsafe_allow_html=True)
                 for i, c in enumerate(contradicoes, start=1):
                     base = (i - 1) * 2
                     st.markdown(f"""
