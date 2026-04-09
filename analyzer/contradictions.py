@@ -1,22 +1,43 @@
-from sentence_transformers import SentenceTransformer, util
+import os
+import json
+from groq import Groq
+from dotenv import load_dotenv
+from pathlib import Path
 
-modelo = SentenceTransformer("paraphrase-multilingual-MiniLM-L12-v2")
+load_dotenv(Path(__file__).parent.parent / ".env")
+
+client = Groq(api_key=os.getenv("GROQ_API_KEY"))
 
 def detectar_contradicoes(texto):
-    frases = [f.strip() for f in texto.split(".") if len(f.strip()) > 10]
-    resultado = []
+    prompt = f"""Você é um especialista em lógica e análise de textos.
+Analise o texto abaixo e identifique pares de frases que se contradizem diretamente.
 
-    for i in range(len(frases)):
-        for j in range(i + 1, len(frases)):
-            emb1 = modelo.encode(frases[i], convert_to_tensor=True)
-            emb2 = modelo.encode(frases[j], convert_to_tensor=True)
-            similaridade = util.cos_sim(emb1, emb2).item()
+Para cada contradição encontrada, responda EXATAMENTE neste formato JSON:
+[
+  {{
+    "frase_1": "primeira frase",
+    "frase_2": "segunda frase que contradiz a primeira",
+    "explicacao": "breve explicação de por que se contradizem"
+  }}
+]
 
-            if similaridade < -0.1:
-                resultado.append({
-                    "frase_1": frases[i],
-                    "frase_2": frases[j],
-                    "similaridade": round(similaridade, 2)
-                })
+Se não houver contradições, retorne apenas: []
 
-    return resultado
+Texto para análise:
+{texto}
+
+Retorne APENAS o JSON, sem explicações adicionais."""
+
+    resposta = client.chat.completions.create(
+        model="llama-3.3-70b-versatile",
+        messages=[{"role": "user", "content": prompt}],
+        temperature=0.3
+    )
+
+    conteudo = resposta.choices[0].message.content.strip()
+
+    try:
+        conteudo = conteudo.replace("```json", "").replace("```", "").strip()
+        return json.loads(conteudo)
+    except:
+        return []
