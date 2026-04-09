@@ -7,13 +7,33 @@ st.set_page_config(page_title="Argus", page_icon="👁️", layout="centered")
 st.markdown("""
     <style>
         .titulo { font-size: 2.5rem; font-weight: 800; color: #7C3AED; }
-        .subtitulo { font-size: 1rem; color: #6B7280; margin-bottom: 2rem; }
+        .subtitulo { font-size: 1.1rem; color: #9CA3AF; margin-bottom: 2rem; letter-spacing: 0.02em; }
         .card-falacia { background-color: #FEF2F2; border-left: 4px solid #EF4444; padding: 1rem; border-radius: 8px; margin-bottom: 1rem; color: #111827; }
         .card-contradicao { background-color: #FFFBEB; border-left: 4px solid #F59E0B; padding: 1rem; border-radius: 8px; margin-bottom: 1rem; color: #111827; }
         .card-ok { background-color: #F0FDF4; border-left: 4px solid #22C55E; padding: 1rem; border-radius: 8px; color: #111827; }
         .tag { display: inline-block; background: #EDE9FE; color: #7C3AED; padding: 2px 8px; border-radius: 4px; font-size: 0.8rem; }
         .trecho { background-color: #FEF2F2; border-left: 3px solid #EF4444; padding: 6px 10px; border-radius: 4px; font-style: italic; color: #374151; margin-top: 6px; font-size: 0.9rem; }
-        .contador { font-size: 0.85rem; color: #6B7280; margin-bottom: 0.5rem; }
+        .contador { font-size: 0.85rem; color: #9CA3AF; margin-bottom: 0.75rem; }
+        .stButton > button {
+            background-color: #7C3AED;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            padding: 0.6rem 1.5rem;
+            font-size: 1rem;
+            font-weight: 600;
+            width: 100%;
+            transition: background-color 0.2s;
+        }
+        .stButton > button:hover {
+            background-color: #6D28D9;
+            color: white;
+        }
+        .stTextArea label {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #E5E7EB;
+        }
     </style>
 """, unsafe_allow_html=True)
 
