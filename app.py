@@ -36,7 +36,7 @@ if analisar:
             falacias = detectar_falacias_ia(texto)
 
         st.markdown("### 📝 Texto analisado")
-        st.text_area("", value=texto, height=150, disabled=True, key="texto_resultado")
+        st.markdown(f'<div class="texto-analisado">{texto}</div>', unsafe_allow_html=True)
 
         st.markdown("---")
 
