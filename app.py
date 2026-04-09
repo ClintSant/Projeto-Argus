@@ -39,7 +39,7 @@ st.markdown("""
 
 col_img, col_titulo = st.columns([1, 4])
 with col_img:
-    st.image("https://raw.githubusercontent.com/ClintSant/Projeto-Argus/main/assets/argus.jpg", width=80)
+    st.image("https://raw.githubusercontent.com/ClintSant/Projeto-Argus/main/assets/assests.argus.jpg", width=80)
 with col_titulo:
     st.markdown('<div class="titulo">Argus</div>', unsafe_allow_html=True)
     st.markdown('<div class="subtitulo">Analisador de coerência argumentativa — detecta falácias e contradições em textos</div>', unsafe_allow_html=True)
