@@ -34,8 +34,9 @@ if analisar:
 
         with st.spinner("🔍 Analisando com IA..."):
             falacias = detectar_falacias_ia(texto)
+            contradicoes = detectar_contradicoes(texto)
 
-        st.markdown("### 📝 Texto analisado")
+        st.markdown("### Texto analisado")
         st.markdown(f'<div class="texto-analisado">{texto}</div>', unsafe_allow_html=True)
 
         st.markdown("---")
@@ -43,9 +44,9 @@ if analisar:
         col_a, col_b = st.columns(2)
 
         with col_a:
-            st.markdown("### 🚨 Falácias")
+            st.markdown("### Falácias")
             if falacias:
-                st.markdown(f'<div class="contador">🔢 {len(falacias)} falácia(s) encontrada(s)</div>', unsafe_allow_html=True)
+                st.markdown(f'<div class="contador">{len(falacias)} falácia(s) encontrada(s)</div>', unsafe_allow_html=True)
                 for f in falacias:
                     trecho = f.get("trecho", "")[:120]
                     st.markdown(f"""
@@ -55,23 +56,22 @@ if analisar:
                             <div class="trecho">❝ {trecho} ❞</div>
                         </div>
                     """, unsafe_allow_html=True)
-                    with st.expander("💡 Ver exemplo didático"):
+                    with st.expander("Ver exemplo didático"):
                         st.markdown(f['exemplo_didatico'])
             else:
-                st.markdown('<div class="card-ok">✅ Nenhuma falácia detectada.</div>', unsafe_allow_html=True)
+                st.markdown('<div class="card-ok">Nenhuma falácia detectada.</div>', unsafe_allow_html=True)
 
         with col_b:
-            st.markdown("### ⚡ Contradições")
-            contradicoes = detectar_contradicoes(texto)
+            st.markdown("### Contradições")
             if contradicoes:
-                st.markdown(f'<div class="contador">🔢 {len(contradicoes)} contradição(ões) encontrada(s)</div>', unsafe_allow_html=True)
+                st.markdown(f'<div class="contador">{len(contradicoes)} contradição(ões) encontrada(s)</div>', unsafe_allow_html=True)
                 for c in contradicoes:
                     st.markdown(f"""
                         <div class="card-contradicao">
                             <strong>Frase 1:</strong> {c['frase_1']}<br><br>
                             <strong>Frase 2:</strong> {c['frase_2']}<br><br>
-                            <span class="tag">similaridade: {c['similaridade']}</span>
+                            <strong>Por que se contradizem:</strong> {c.get('explicacao', '')}
                         </div>
                     """, unsafe_allow_html=True)
             else:
-                st.markdown('<div class="card-ok">✅ Nenhuma contradição detectada.</div>', unsafe_allow_html=True)
+                st.markdown('<div class="card-ok">Nenhuma contradição detectada.</div>', unsafe_allow_html=True)
