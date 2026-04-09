@@ -1,5 +1,4 @@
 import streamlit as st
-import re
 from analyzer.groq_analyzer import detectar_falacias_ia
 from analyzer.contradictions import detectar_contradicoes
 
@@ -13,8 +12,7 @@ st.markdown("""
         .card-contradicao { background-color: #FFFBEB; border-left: 4px solid #F59E0B; padding: 1rem; border-radius: 8px; margin-bottom: 1rem; color: #111827; }
         .card-ok { background-color: #F0FDF4; border-left: 4px solid #22C55E; padding: 1rem; border-radius: 8px; color: #111827; }
         .tag { display: inline-block; background: #EDE9FE; color: #7C3AED; padding: 2px 8px; border-radius: 4px; font-size: 0.8rem; }
-        .destaque { background-color: #FCA5A5; padding: 2px 4px; border-radius: 4px; font-weight: bold; color: #111827; }
-        .texto-analisado { font-size: 1rem; line-height: 1.8; background: #F9FAFB; padding: 1rem; border-radius: 8px; border: 1px solid #E5E7EB; color: #111827; }
+        .trecho { background-color: #FEF2F2; border-left: 3px solid #EF4444; padding: 6px 10px; border-radius: 4px; font-style: italic; color: #374151; margin-top: 6px; font-size: 0.9rem; }
         .contador { font-size: 0.85rem; color: #6B7280; margin-bottom: 0.5rem; }
     </style>
 """, unsafe_allow_html=True)
@@ -28,19 +26,6 @@ col1, col2, col3 = st.columns([1, 1, 1])
 with col2:
     analisar = st.button("🔍 Analisar texto", use_container_width=True)
 
-def destacar_trechos(texto, falacias):
-    texto_destacado = texto
-    for f in falacias:
-        trecho = f.get("trecho", "")
-        if trecho:
-            texto_destacado = re.sub(
-                f"({re.escape(trecho)})",
-                r'<span class="destaque" title="' + f["falacia"] + r'">\1</span>',
-                texto_destacado,
-                flags=re.IGNORECASE
-            )
-    return texto_destacado
-
 if analisar:
     if not texto.strip():
         st.warning("Digite ou cole um texto primeiro.")
@@ -51,12 +36,7 @@ if analisar:
             falacias = detectar_falacias_ia(texto)
 
         st.markdown("### 📝 Texto analisado")
-        if falacias:
-            texto_destacado = destacar_trechos(texto, falacias)
-            st.markdown(f'<div class="texto-analisado">{texto_destacado}</div>', unsafe_allow_html=True)
-            st.caption("🔴 Trechos em vermelho indicam falácias detectadas pela IA")
-        else:
-            st.markdown(f'<div class="texto-analisado">{texto}</div>', unsafe_allow_html=True)
+        st.text_area("", value=texto, height=150, disabled=True, key="texto_resultado")
 
         st.markdown("---")
 
@@ -67,11 +47,12 @@ if analisar:
             if falacias:
                 st.markdown(f'<div class="contador">🔢 {len(falacias)} falácia(s) encontrada(s)</div>', unsafe_allow_html=True)
                 for f in falacias:
+                    trecho = f.get("trecho", "")[:120]
                     st.markdown(f"""
                         <div class="card-falacia">
                             <strong>{f['falacia']}</strong><br>
-                            <span style="color:#6B7280;font-size:0.9rem">{f['descricao']}</span><br><br>
-                            <span class="tag">"{f.get('trecho', '')[:60]}..."</span>
+                            <span style="color:#6B7280;font-size:0.9rem">{f['descricao']}</span>
+                            <div class="trecho">❝ {trecho} ❞</div>
                         </div>
                     """, unsafe_allow_html=True)
                     with st.expander("💡 Ver exemplo didático"):
