@@ -1,32 +1,39 @@
-👁️ Argus — Analisador de Coerência Argumentativa
+# Argus — Analisador de Coerência Argumentativa
+
+> **Acesse o app:** [projeto-argus-dn5pjrohdkimeuwfvxsbuj.streamlit.app](https://projeto-argus-dn5pjrohdkimeuwfvxsbuj.streamlit.app)
 
 Argus é uma aplicação web que utiliza Inteligência Artificial para detectar **falácias lógicas** e **contradições** em textos, com base na tradição filosófica aristotélica e na lógica informal de Irving Copi.
 
- Como funciona
+# Como surgiu
 
-O usuário cola qualquer texto na interface e o Argus:
-1. Envia o texto para um LLM via **Groq API** (LLaMA 3.3 70B)
-2. A IA identifica falácias com compreensão semântica real — sem depender de palavras-chave fixas
-3. Detecta contradições entre frases usando **Sentence Transformers**
-4. Explica cada falácia com descrição e exemplo didático
+A primeira versão do Argus funcionava com um dicionário de padrões fixos — uma lista de expressões associadas a cada tipo de falácia. O sistema detectava sentenças como "todo mundo sabe" como apelo à popularidade, mas ignorava a sentença "é de conhecimento geral", que carrega o mesmo significado. Qualquer variação de sintaxe ou escolha diferente de palavras passava despercebida.
+Ficou claro que um sistema baseado em regras nunca conseguiria acompanhar a riqueza e a ambiguidade da linguagem humana (Linguagem Natural). A solução foi substituir o dicionário por um modelo de linguagem via Groq API — agora o Argus não busca palavras, ele compreende o argumento. Contexto, sinônimos, ironia e nuances passaram a fazer parte da análise.
 
- Falácias detectadas
+# Como funciona
 
-O Argus detecta falácias da tradição filosófica clássica, incluindo:
-- Ad Hominem, Apelo à Autoridade, Falsa Dicotomia
-- Post Hoc Ergo Propter Hoc, Ladeira Escorregadia
-- Tu Quoque, Homem de Palha, Apelo à Ignorância
-- E muitas outras catalogadas por Aristóteles e Copi
+1. O usuário digita ou cola qualquer texto na interface
+2. O texto é enviado para um LLM via Groq API (LLaMA 3.3 70B)
+3. A IA identifica falácias com compreensão semântica real
+4. Contradições entre frases são detectadas com Sentence Transformers
+5. Os resultados aparecem com descrição e exemplo didático de cada falácia
 
- Tecnologias
+## Para que serve
 
-- **Python** — linguagem principal
-- **Streamlit** — interface web
-- **Groq API + LLaMA 3.3 70B** — detecção de falácias por IA
-- **Sentence Transformers** — detecção de contradições
-- **python-dotenv** — gerenciamento de variáveis de ambiente
+- Analisar argumentos em redes sociais, notícias e discursos
+- Estudantes que querem melhorar a qualidade das próprias redações
+- Pessoas que querem identificar manipulação em propagandas
+- Advogados e estudantes de direito que trabalham com argumentação
+- Professores que querem ensinar lógica e filosofia de forma prática
 
- Como rodar localmente
+## Tecnologias
+
+- Python
+- Streamlit
+- Groq API + LLaMA 3.3 70B
+- Sentence Transformers
+- python-dotenv
+
+## Como rodar localmente
 
 1. Clone o repositório:
 ```bash
@@ -37,36 +44,37 @@ cd Projeto-Argus
 2. Crie e ative o ambiente virtual:
 ```bash
 python -m venv venv
-venv\Scripts\activate  # Windows
+venv\Scripts\activate
 ```
 
 3. Instale as dependências:
 ```bash
-pip install -r requisitos.txt
+pip install -r requirements.txt
 ```
 
 4. Crie um arquivo `.env` com sua chave da Groq:
-
+GROQ_API_KEY=sua_chave_aqui
 
 5. Rode a aplicação:
 ```bash
 streamlit run app.py
 ```
 
-## 📁 Estrutura do projeto
+## Estrutura do projeto
 argus/
-├── app.py                  # Interface Streamlit
-├── analisador/
-│   ├── groq_analyzer.py    # Detecção de falácias via IA
-│   ├── contradictions.py   # Detecção de contradições
-│   └── fallacies.py        # Versão anterior com dicionário
-├── dados/
-│   └── fallacies.json      # Dicionário filosófico de falácias
-├── .env                    # Chave de API (não versionado)
-└── requisitos.txt          # Dependências do projeto
+├── app.py
+├── analyzer/
+│   ├── groq_analyzer.py
+│   ├── contradictions.py
+│   └── fallacies.py
+├── data/
+│   └── fallacies.json
+└── requirements.txt
 
-## 👤 Autor
+## Autor
 
-**Clinton Santos**  
+**Clinton Gonçalves dos Santos**  
 Analista de Dados | Cientista de Dados em formação  
 [LinkedIn](www.linkedin.com/in/clinton-santos-094b1b214) • [GitHub](https://github.com/ClintSant)
+
+Projeto em construção — melhorias e novas funcionalidades em desenvolvimento.
