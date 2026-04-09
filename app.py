@@ -65,11 +65,12 @@ if analisar:
             st.markdown("### Contradições")
             if contradicoes:
                 st.markdown(f'<div class="contador">{len(contradicoes)} contradição(ões) encontrada(s)</div>', unsafe_allow_html=True)
-                for c in contradicoes:
+                for i, c in enumerate(contradicoes, start=1):
+                    base = (i - 1) * 2
                     st.markdown(f"""
                         <div class="card-contradicao">
-                            <strong>Frase 1:</strong> {c['frase_1']}<br><br>
-                            <strong>Frase 2:</strong> {c['frase_2']}<br><br>
+                            <strong>Frase {base + 1}:</strong> {c['frase_1']}<br><br>
+                            <strong>Frase {base + 2}:</strong> {c['frase_2']}<br><br>
                             <strong>Por que se contradizem:</strong> {c.get('explicacao', '')}
                         </div>
                     """, unsafe_allow_html=True)
