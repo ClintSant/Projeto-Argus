@@ -24,7 +24,6 @@ flowchart TD
     H --> I
 ```
 
-Cola isso no README do Argus no GitHub dentro de um bloco de código com a linguagem `mermaid` e o GitHub vai renderizar automaticamente!
 
 1. O usuário digita ou cola qualquer texto na interface
 2. O texto é enviado para um LLM via Groq API (LLaMA 3.3 70B)
