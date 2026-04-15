@@ -11,6 +11,21 @@ Ficou claro que um sistema baseado em regras nunca conseguiria acompanhar a riqu
 
 # Como funciona
 
+```mermaid
+flowchart TD
+    A[Usuário] -->|texto| B[Interface — Streamlit\napp.py]
+    B --> C[Groq Analyzer\ngroq_analyzer.py]
+    B --> D[Contradições\ncontradictions.py]
+    C --> E[LLM — Groq API\nLLaMA 3.3 70B]
+    D --> F[LLM — Groq API\nLLaMA 3.3 70B]
+    E --> G[Falácias\nnome, trecho, exemplo]
+    F --> H[Contradições\npar, explicação]
+    G --> I[Resultado exibido ao usuário]
+    H --> I
+```
+
+Cola isso no README do Argus no GitHub dentro de um bloco de código com a linguagem `mermaid` e o GitHub vai renderizar automaticamente!
+
 1. O usuário digita ou cola qualquer texto na interface
 2. O texto é enviado para um LLM via Groq API (LLaMA 3.3 70B)
 3. A IA identifica falácias com compreensão semântica real
